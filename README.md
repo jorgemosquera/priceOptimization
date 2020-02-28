@@ -70,43 +70,61 @@ Box Plots of Kms over Year
 
  After removing the outliers, we have a consistent dataset
 
+<p align="center">
  <img src="/images/pairplot.png" width="500">
+</p>
 
  And we can plot the relationship between Price and Kms identifying years.
 
+<p align="center">
  <img src="/images/correlation1.png" width="500">
+</p>
 
 2. Check Correlations.
 
 Next we can check the correlations between the attributes. As we only have three attributes, we can plot them in a Heatmap
 
+<p align="center">
 <img src="/images/heatmap.png" width="500">
+</p>
 
 We see a strong positive correlation between price and year and a strong negative correlation between price and kms and year and kms.
 
 We can draw a linear regression curve to verify the distribution.
 
+<p align="center">
 <img src="/images/linear.png" width="500">
+</p>
 
 It doesn't fit well at values near 0 or greater than 120k. Looks more like an exponential curve.
 
+<p align="center">
 <img src="/images/residuals.png" width="500">
+</p>
 
 To fix this, we can take the log of price.
 
+<p align="center">
 <img src="/images/correlation_log.png" width="500">
+</p>
 
 And we can see the correlations with the new attribute price_log
 
+<p align="center">
 <img src="/images/heatmap2.png" width="500">
+</p>
 
 Finally, we can plot a regression line to se its fit.
 
+<p align="center">
 <img src="/images/linear_log.png" width="500">
+</p>
 
 And the new residuals
 
+<p align="center">
 <img src="/images/residuals_log.png" width="500">
+</p>
 
 We can finish our transformation creating a function that:
 1. Remove outliers using IQR score.
@@ -120,15 +138,21 @@ Now we are ready to make our regression calculations. I want to test two Regress
 
 I will use LinearRegression from Sklearn to obtain the line that best fits our data.
 
+<p align="center">
 <img src="/images/mlr1.png" width="500">
+</p>
 
 Now as we saw in the Data assessment, the data can have outliers. And this is normal, basically a seller can put the price that he wants. Also we can have cars with a lot of kilometers. Because of this is better to use mean absolute error as our performance measure.
 
+<p align="center">
 <img src="/images/mlr2.png" width="500">
+</p>
 
 Now we are ready to make some predictions with our model:
 
+<p align="center">
 <img src="/images/mlr3.png" width="500">
+</p>
 
 One important thing to realize is that we didn't have enough data for a Machine Learning Algorithm.
 
@@ -136,20 +160,27 @@ One important thing to realize is that we didn't have enough data for a Machine 
 
 We can also use a non-linear regression model to fit our data. To do this, I will use only kms and price features.
 
+<p align="center">
 <img src="/images/plr1.png" width="500">
+</p>
 
 We can plot hoe the line fits the data.
 
+<p align="center">
 <img src="/images/plr2.png" width="500">
+</p>
 
 And we can measure the mean absolute error:
 
+<p align="center">
 <img src="/images/plr3.png" width="500">
+</p>
 
 We can see the difference of the predictions using both models in the data:
 
+<p align="center">
 <img src="/images/results.png" width="500">
-
+</p>
 
 ## Conclusions
 Data analytics is a powerful tool to make well-informed decisions. Using the process of setting a problem, understanding the background, gather, clean and analyze data, it is easy to draw well-informed decisions.
