@@ -44,16 +44,71 @@ We can see the results of the data preparation in the following image:
 
 ## Data Assessment
 
-Now it was time to explore our data and get insights of what the data can provide us. In this step my objective was to understand the data, discover patters and fix anomalies. One important thing to realize is that we didn't have enough data for a Machine Learning Algorithm.
+Now it was time to explore our data and get insights of what the data can provide us. In this step my objective was to understand the data, discover patters and fix anomalies.
 
 1. Check the distribution of the attributes. Look for Outliers.
 
+Distributions of Attributes
+
+<img src="/images/distributions.png">
+
+The distributions graphs allow us to spot outliers and the shape of our attributes.
+
+Box Plots of Price over Years
+
 <img src="/images/pricePerYear.png">
+
+In this graph we can see how the price increase according to the year model. Also the variance inside the groups.
+
+Box Plots of Kms over Year
 
 <img src="/images/kmsPerYear.png">
 
+ In this graph we can see how the kilometers driven decrease with the newer models. Also the variance inside the groups.
+
+ So, as we have few points of data that can be easily influence by outlier, we will remove outliers based on IQR score.
+
+ After removing the outliers, we have a consistent dataset
+
+ <img src="/images/pairplot.png">
+
+ And we can plot the relationship between Price and Kms identifying years.
+
+ <img src="/images/correlation1.png">
 
 2. Check Correlations.
+
+Next we can check the correlations between the attributes. As we only have three attributes, we can plot them in a Heatmap
+
+<img src="/images/heatmap.png">
+
+We see a strong positive correlation between price and year and a strong negative correlation between price and kms and year and kms.
+
+We can draw a linear regression curve to verify the distribution.
+
+<img src="/images/linear.png">
+
+It doesn't fit well at values near 0 or greater than 120k. Looks more like an exponential curve.
+
+<img src="/images/residuals.png">
+
+To fix this, we can take the log of price.
+
+<img src="/images/correlation_log.png">
+
+And we can see the correlations with the new attribute price_log
+
+<img src="/images/heatmap2.png">
+
+Finally, we can plot a regression line to se its fit.
+
+<img src="/images/linear_log.png">
+
+And the new residuals
+
+<img src="/images/residuals_log.png">
+
+One important thing to realize is that we didn't have enough data for a Machine Learning Algorithm.
 
 
 ## Conclusions
